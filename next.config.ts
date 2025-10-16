@@ -1,7 +1,9 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  images: {
+    domains: ['codrops-1f606.kxcdn.com'],
+  },
 };
 
 export default nextConfig;
