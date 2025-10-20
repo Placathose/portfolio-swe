@@ -19,8 +19,8 @@ export default function BioSection() {
     <div className="w-full flex flex-row items-start justify-between">
       {/* Email Section */}
       <div className="flex items-center gap-2 cursor-pointer group relative" onClick={copyToClipboard}>
-        <p className="text-black text-sm font-medium group-hover:text-blue-500 transition-colors">
-          hello@yume.com
+        <p className="text-black text-[20px] font-medium group-hover:underline underline-offset-4 transition-all duration-300 ease-in-out">
+          wyattonscroll@gmail.com
         </p>
         <div className="w-4 h-4 flex-shrink-0">
           <svg
@@ -51,9 +51,9 @@ export default function BioSection() {
       </div>
 
       {/* Bio Text */}
-      <div className="flex-1 max-w-md ml-8">
-        <p className="text-black text-sm leading-relaxed">
-          Hello, I&apos;m a freelancer specializing in minimal design with 10 years of expertise — based in Tokyo, working remote. Let&apos;s create!
+      <div className="flex-2 max-w-md ml-8">
+        <p className="text-black text-[32px] leading-9 font-normal">
+          I&apos;m a software engineer and Shopify freelancer. My values are in my code, teaching and creativity.
         </p>
       </div>
     </div>
