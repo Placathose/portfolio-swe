@@ -1,6 +1,6 @@
 import ProjectsSection from '@/components/ProjectsSection';
 
-export default function ProjectsPage() {
+export default async function ProjectsPage() {
   return (
     <div className="min-h-screen bg-white">
       <div className="py-10 px-2 max-w-7xl mx-auto">

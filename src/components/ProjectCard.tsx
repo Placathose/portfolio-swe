@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 
 interface ProjectCardProps {
   id: string;
@@ -11,6 +12,7 @@ interface ProjectCardProps {
   date: string;
   author: string;
   tags: string[];
+  hasDetails?: boolean;
 }
 
 export default function ProjectCard({
@@ -23,7 +25,8 @@ export default function ProjectCard({
   infoUrl,
   date,
   author,
-  tags
+  tags,
+  hasDetails = false
 }: ProjectCardProps) {
   return (
     <article 
@@ -95,6 +98,17 @@ export default function ProjectCard({
           </a>
         ))}
       </div>
+
+      {hasDetails && (
+        <div className="px-3 pb-3">
+          <Link 
+            href={`/project/${id}`}
+            className="inline-block text-sm text-blue-600 hover:text-blue-700 hover:underline font-medium"
+          >
+            View Details →
+          </Link>
+        </div>
+      )}
     </article>
   );
 }
