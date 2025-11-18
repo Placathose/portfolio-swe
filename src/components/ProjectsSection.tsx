@@ -42,12 +42,12 @@ async function getProjectsFromMDX() {
         };
         
         return projectData;
-      } catch (fileErr) {
+      } catch {
         // Skip individual files that fail to parse
         return null;
       }
     }).filter((p): p is NonNullable<typeof p> => p !== null);
-  } catch (err) {
+  } catch {
     // Silently fail and return empty array - fallback to static projects
     return [];
   }
