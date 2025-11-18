@@ -1,5 +1,5 @@
-import Image from 'next/image';
 import Link from 'next/link';
+import Image from 'next/image';
 
 interface ProjectCardProps {
   id: string;
@@ -41,13 +41,13 @@ export default function ProjectCard({
           rel="noopener noreferrer"
         >
           <div className="loader"></div>
-          <img
+          <Image
             src={image}
             alt={imageAlt}
             width={400}
             height={300}
             className="w-full h-full object-cover block transition-transform duration-500 ease-in-out scale-[1.001] group-hover:scale-105"
-            decoding="async"
+            unoptimized={image.startsWith('http')}
           />
         </a>
         <div className="absolute bottom-0 left-0 w-full px-4 py-8 pb-4 opacity-0 bg-gradient-to-t from-black/70 via-black/60 to-transparent transform translate-y-5 transition-all duration-300 ease-in-out flex z-[12] items-center justify-between gap-4 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto">
