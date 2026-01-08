@@ -1,10 +1,17 @@
 import ProjectsSection from '@/components/ProjectsSection';
+import Link from 'next/link';
+import { Button } from '@/components/ui/button';
 
 export default async function ProjectsPage() {
   return (
     <div className="min-h-screen bg-white">
       <div className="py-10 px-2 max-w-7xl mx-auto">
-        <h1 className="text-6xl font-bold text-black mb-5">Projects</h1>
+        <div className="flex justify-between items-center mb-5">
+          <h1 className="text-6xl font-bold text-black">Projects</h1>
+          <Link href="/projects/new">
+            <Button>Add New Project</Button>
+          </Link>
+        </div>
         <ProjectsSection showAll={true} showTitle={false} />
       </div>
     </div>

@@ -98,3 +98,6 @@ jspm_packages/
 
 # Fumadocs generated source
 .source
+/src/generated/prisma
+
+/src/generated/prisma
