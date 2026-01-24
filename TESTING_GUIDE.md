@@ -7,9 +7,6 @@ Before testing, make sure you have:
 1. **Environment variables set up** in `.env`:
    ```env
    DATABASE_URL="your_neon_connection_string"
-   CLOUDINARY_CLOUD_NAME=your_cloud_name
-   CLOUDINARY_API_KEY=your_api_key
-   CLOUDINARY_API_SECRET=your_api_secret
    ```
 
 2. **Database set up**:
@@ -51,19 +48,18 @@ The server should start at `http://localhost:3000`
 2. Enter invalid URLs in Demo URL, Info URL, or Code URL fields (e.g., "not-a-url")
 3. You should see "Must be a valid URL" error
 
-## Step 4: Test Image Upload
+### Test Image URL Field
 
-1. Click the file input for "Project Image"
-2. Select an image file (JPG, PNG, etc.)
-3. **Verify**: Image preview appears below the input
-4. The preview should show your selected image
+1. Enter a valid image URL in the "Project Image" field
+2. **Verify**: The URL is accepted (e.g., "https://example.com/image.jpg")
+3. Invalid URLs should show validation errors
 
 ## Step 5: Test Form Submission
 
 ### Fill Out Complete Form
 
 1. **Title**: "Test Project"
-2. **Image**: Select any image file (preview should show)
+2. **Image**: Enter a valid image URL (e.g., "https://example.com/image.jpg")
 3. **Image Alt Text**: "Test project image"
 4. **Date**: "Jan 2025"
 5. **Author**: "Your Name"
@@ -97,17 +93,9 @@ npm run db:studio
 1. Go to `http://localhost:3000/projects`
 2. Your new project should appear in the grid
 3. Check that:
-   - Image displays correctly (from Cloudinary)
+   - Image displays correctly (from the provided URL)
    - All fields are shown correctly
    - Tags are displayed
-
-## Step 7: Verify Cloudinary Upload
-
-1. Go to [Cloudinary Dashboard](https://cloudinary.com/console)
-2. Navigate to **Media Library**
-3. Check the `projects/` folder
-4. Your uploaded image should be there
-5. Verify the image URL matches what's in the database
 
 ## Step 8: Test Error Handling
 
@@ -117,9 +105,9 @@ npm run db:studio
 2. Try submitting the form
 3. You should see an error message
 
-### Test Invalid Image
+### Test Invalid Image URL
 
-1. Try uploading a non-image file (if file input allows)
+1. Try entering an invalid URL format
 2. Should show validation error
 
 ## Step 9: Test Cancel Button
@@ -134,7 +122,7 @@ npm run db:studio
 1. Create multiple projects with different data
 2. Verify all appear on `/projects` page
 3. Check database has all entries
-4. Verify all images are in Cloudinary
+4. Verify all image URLs are stored correctly
 
 ## Common Issues & Solutions
 
@@ -144,10 +132,10 @@ npm run db:studio
 - **Verify**: All environment variables are set
 - **Verify**: Database connection is working
 
-### Issue: Image not uploading
-- **Check**: Cloudinary credentials in `.env`
-- **Check**: Cloudinary dashboard for upload errors
-- **Verify**: Image file size (Cloudinary has limits)
+### Issue: Image not displaying
+- **Check**: Image URL is valid and accessible
+- **Verify**: Image URL format is correct (must be a valid URL)
+- **Check**: CORS settings if image is hosted elsewhere
 
 ### Issue: Form not submitting
 - **Check**: Browser console for JavaScript errors
@@ -164,11 +152,11 @@ npm run db:studio
 - [ ] Form page loads at `/projects/new`
 - [ ] All form fields are visible
 - [ ] Required field validation works
-- [ ] Image preview works
+- [ ] Image URL validation works
 - [ ] Form submission works
 - [ ] Redirect to `/projects` works
 - [ ] Project appears in projects list
-- [ ] Image displays correctly (from Cloudinary)
+- [ ] Image displays correctly (from provided URL)
 - [ ] Data saved to database
 - [ ] Cancel button works
 - [ ] Error messages display correctly
@@ -176,7 +164,7 @@ npm run db:studio
 ## Testing with Different Data
 
 Try creating projects with:
-- Different image formats (JPG, PNG, WebP)
+- Different image URLs (various hosting services)
 - Different tag combinations
 - With and without optional URLs
 - With and without "Has Details" checked
