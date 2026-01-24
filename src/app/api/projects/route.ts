@@ -4,7 +4,7 @@ import { createProject } from '@/lib/db/projects';
 export async function POST(request: NextRequest) {
   try {
     const formData = await request.formData();
-    
+
     // Get text fields
     const title = formData.get('title') as string;
     const imageUrl = formData.get('image') as string;
@@ -16,7 +16,7 @@ export async function POST(request: NextRequest) {
     const author = formData.get('author') as string;
     const tagsString = formData.get('tags') as string;
     const hasDetails = formData.get('hasDetails') === 'true';
-    
+
     if (!title || !imageUrl || !imageAlt || !date || !author || !tagsString) {
       return NextResponse.json(
         { error: 'Missing required fields' },
