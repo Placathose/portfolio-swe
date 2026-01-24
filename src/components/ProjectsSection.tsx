@@ -65,6 +65,18 @@ const projects = [
     author: "Bruce Wyatt",
     tags: ["3D", "Pocketbase", "Three.js", "React Three Fiber"],
     hasDetails: true
+  },
+  {
+    id: "post-87430",
+    title: "Create a mini Shopify-like API",
+    image: "/characterbuilder.png",
+    imageAlt: "Featured Image for the mini Shopify-like API project",
+    demoUrl: "",
+    codeUrl: "https://github.com/Placathose/mini-shopify",
+    date: "Jan 2026",
+    author: "Bruce Wyatt",
+    tags: ["Node.js", "Express", "PostgreSQL", "REST API"],
+    hasDetails: true
   }
 ];
 
