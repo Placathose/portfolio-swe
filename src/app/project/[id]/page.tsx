@@ -2,8 +2,9 @@ import { projectSource } from '@/lib/source';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 
-export default async function ProjectPage({ params }: { params: { id: string } }) {
-  const page = projectSource.getPage([params.id]);
+export default async function ProjectPage({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params;
+  const page = projectSource.getPage([id]);
   
   if (!page) notFound();
   
