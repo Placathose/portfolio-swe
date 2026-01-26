@@ -20,7 +20,7 @@ export default function BioSection() {
       {/* Email Section */}
       <div className="flex items-center gap-2 cursor-pointer group relative" onClick={copyToClipboard}>
         <p className="text-black text-[20px] font-medium group-hover:underline underline-offset-4 transition-all duration-300 ease-in-out">
-          wyattonscroll@gmail.com
+          wyattgx@gmail.com
         </p>
         <div className="w-4 h-4 flex-shrink-0">
           <svg
