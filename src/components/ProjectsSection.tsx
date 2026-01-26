@@ -1,57 +1,10 @@
 import ProjectCard from './ProjectCard';
 import Link from 'next/link';
-import fs from 'fs';
-import path from 'path';
-import matter from 'gray-matter';
+import { getPocketBase } from '@/lib/pocketbase';
+import { formatDate } from '@/lib/formatdate';
 
-// Function to get projects from MDX files by reading them directly
-async function getProjectsFromMDX() {
-  try {
-    const contentDir = path.join(process.cwd(), 'content/projects');
-    
-    // Check if directory exists
-    if (!fs.existsSync(contentDir)) {
-      return [];
-    }
-    
-    const files = fs.readdirSync(contentDir);
-    const mdxFiles = files.filter(f => f.endsWith('.mdx'));
-    
-    if (mdxFiles.length === 0) {
-      return [];
-    }
-    
-    return mdxFiles.map(file => {
-      try {
-        const filePath = path.join(contentDir, file);
-        const fileContents = fs.readFileSync(filePath, 'utf8');
-        const { data } = matter(fileContents);
-        
-        const projectData = {
-          id: data.id || file.replace('.mdx', ''),
-          title: data.title || '',
-          image: data.image || '',
-          imageAlt: data.imageAlt || data.title || '',
-          demoUrl: data.demoUrl,
-          infoUrl: data.infoUrl,
-          codeUrl: data.codeUrl,
-          date: data.date || '',
-          author: data.author || '',
-          tags: data.tags ? (typeof data.tags === 'string' ? data.tags.split(',').map((t: string) => t.trim()) : data.tags as string[]) : [],
-          hasDetails: true
-        };
-        
-        return projectData;
-      } catch {
-        // Skip individual files that fail to parse
-        return null;
-      }
-    }).filter((p): p is NonNullable<typeof p> => p !== null);
-  } catch {
-    // Silently fail and return empty array - fallback to static projects
-    return [];
-  }
-}
+
+
 
 const projects = [
   {
@@ -85,13 +38,40 @@ interface ProjectsSectionProps {
   showTitle?: boolean;
 }
 
+async function getProjectsFromPocketBase() {
+  try {
+    const pb = getPocketBase();
+    const pbUrl = process.env.POCKETBASE_URL || '';
+    const records = await pb.collection('portfolio_projects').getFullList({
+      sort: '-created',
+    });
+
+    console.log('PocketBase raw records:', JSON.stringify(records, null, 2));
+
+    return records.map(record => ({
+      id: record.id,
+      title: record.title,
+      image: record.image ? `${pbUrl}/api/files/portfolio_projects/${record.id}/${record.image}` : '/characterbuilder.png',
+      imageAlt: record.imageAlt,
+      demoUrl: record.demoUrl || undefined,
+      codeUrl: record.codeUrl || undefined,
+      infoUrl: record.infoUrl || undefined,
+      date: formatDate(record.date),
+      author: record.author,
+      tags: typeof record.tags === 'string' ? JSON.parse(record.tags) : record.tags,
+    }));
+  } catch (error) {
+    console.error('Error fetching from PocketBase:', error);
+    return [];
+  }
+}
+
 export default async function ProjectsSection({ showAll = false, showTitle = true }: ProjectsSectionProps) {
-  const mdxProjects = await getProjectsFromMDX();
-  // Prioritize static projects array over MDX for card display
-  // MDX files are for detail pages, static array is source of truth for card metadata
-  const allProjects = [...projects, ...mdxProjects.filter(mp => !projects.some(p => p.id === mp.id))];
+  const apiProjects = await getProjectsFromPocketBase();
+  const allProjects = apiProjects.length > 0 ? apiProjects : projects; // Fallback to static
+
   const displayedProjects = showAll ? allProjects : allProjects.slice(0, 4);
-  
+
   return (
     <section className="py-20 px-20 max-w-7xl mx-auto">
       {showTitle && <h2 className="text-4xl font-bold text-black mb-12">Projects</h2>}
@@ -103,10 +83,10 @@ export default async function ProjectsSection({ showAll = false, showTitle = tru
           />
         ))}
       </div>
-      
+
       {!showAll && (
         <div className="flex justify-center mt-12">
-          <Link 
+          <Link
             href="/projects"
             className="group w-full max-w-xs rounded-xl overflow-hidden bg-white border border-gray-200 transition-all duration-300 ease-in-out hover:-translate-y-1 hover:shadow-lg hover:shadow-black/10 flex items-center justify-center py-3 px-3"
           >

@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 
 interface ProjectCardProps {
   id: string;
@@ -80,8 +81,11 @@ export default function ProjectCard({
         </div>
       </div>
 
-      <div className="flex gap-1 items-center px-3 py-3 pb-6 text-xs text-gray-600">
-        <time className="cursor-default">{date}</time> by <a className="text-blue-600 no-underline hover:underline" href="#">{author}</a>
+      <div className="flex justify-between items-center px-3 py-3 pb-6 text-xs text-gray-600">
+        <time className="cursor-default">{date}</time>
+        <span>By <a className="text-blue-600 no-underline hover:underline" href="#">
+          {author}</a>
+        </span>
       </div>
 
       <div className="flex flex-wrap gap-1 px-2 pb-3">
@@ -94,6 +98,16 @@ export default function ProjectCard({
             {tag}
           </a>
         ))}
+      </div>
+
+      {/* View Details Link */}
+      <div className="px-3 pb-3">
+        <Link
+          href={`/project/${id}`}
+          className="inline-block text-sm text-blue-600 hover:text-blue-700 hover:underline font-medium"
+        >
+          View Details →
+        </Link>
       </div>
     </article>
   );
