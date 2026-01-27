@@ -17,7 +17,7 @@ export default function BioSection() {
 
   return (
     <div className="w-full flex flex-row items-start justify-between">
-      {/* Email Section */}
+      {/* Email Section. */}
       <div className="flex items-center gap-2 cursor-pointer group relative" onClick={copyToClipboard}>
         <p className="text-black text-[20px] font-medium group-hover:underline underline-offset-4 transition-all duration-300 ease-in-out">
           wyattgx@gmail.com
