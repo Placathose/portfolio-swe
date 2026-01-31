@@ -10,12 +10,12 @@ export default async function Home() {
         {/* Profile Section */}
         <div className="w-full flex flex-col lg:flex-row items-center lg:items-start gap-6 lg:gap-2">
           {/* Avatar */}
-          <div className="w-[336px] h-[336px] lg:w-42 lg:h-42 rounded-full bg-gray-200 flex-shrink-0 overflow-hidden group cursor-pointer hover:scale-110 transition-transform duration-300 ease-in-out order-1 lg:order-2">
+          <div className="w-[168px] h-[168px] lg:w-42 lg:h-42 rounded-full bg-gray-200 flex-shrink-0 overflow-hidden group cursor-pointer hover:scale-110 transition-transform duration-300 ease-in-out order-1 lg:order-2">
             <Image
               src="/profile.png"
               alt="Profile picture"
-              width={336}
-              height={336}
+              width={168}
+              height={168}
               className="w-full h-full object-cover"
               priority
             />
