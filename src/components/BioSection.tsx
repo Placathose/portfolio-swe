@@ -16,9 +16,16 @@ export default function BioSection() {
   };
 
   return (
-    <div className="w-full flex flex-row items-start justify-between">
+    <div className="w-full flex flex-col lg:flex-row items-center lg:items-start justify-between gap-6 lg:gap-0">
+      {/* Bio Text */}
+      <div className="w-full lg:flex-2 lg:max-w-md lg:ml-8 order-1 lg:order-2 px-4 lg:px-0">
+        <p className="text-black text-2xl lg:text-[32px] leading-9 font-normal text-center lg:text-left">
+          I&apos;m a software engineer and Shopify freelancer. My values are in my code, teaching and creativity.
+        </p>
+      </div>
+
       {/* Email Section. */}
-      <div className="flex items-center gap-2 cursor-pointer group relative" onClick={copyToClipboard}>
+      <div className="flex items-center gap-2 cursor-pointer group relative order-2 lg:order-1" onClick={copyToClipboard}>
         <p className="text-black text-[20px] font-medium group-hover:underline underline-offset-4 transition-all duration-300 ease-in-out">
           wyattgx@gmail.com
         </p>
@@ -48,13 +55,6 @@ export default function BioSection() {
             Copied!
           </span>
         )}
-      </div>
-
-      {/* Bio Text */}
-      <div className="flex-2 max-w-md ml-8">
-        <p className="text-black text-[32px] leading-9 font-normal">
-          I&apos;m a software engineer and Shopify freelancer. My values are in my code, teaching and creativity.
-        </p>
       </div>
     </div>
   );

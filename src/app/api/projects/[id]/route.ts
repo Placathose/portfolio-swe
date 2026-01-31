@@ -9,12 +9,12 @@ export async function GET(
     const { id } = await params;
     const pb = getPocketBase();
     const pbUrl = process.env.POCKETBASE_URL || '';
-
+    
     // Fetch single project by ID
     const record = await pb.collection('portfolio_projects').getOne(id);
 
     console.log('PocketBase raw record:', JSON.stringify(record, null, 2));
-
+    
     // Transform to match your project shape
     const project = {
       id: record.id,
@@ -26,11 +26,11 @@ export async function GET(
       infoUrl: record.infoUrl || undefined,
       date: record.date,
       author: record.author,
-      tags: typeof record.tags === 'string'
-        ? JSON.parse(record.tags)
+      tags: typeof record.tags === 'string' 
+        ? JSON.parse(record.tags) 
         : record.tags,
     };
-
+    
     return NextResponse.json(project);
   } catch (error) {
     console.error('Error fetching project:', error);

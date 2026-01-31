@@ -73,7 +73,7 @@ export default async function ProjectsSection({ showAll = false, showTitle = tru
   const displayedProjects = showAll ? allProjects : allProjects.slice(0, 4);
 
   return (
-    <section className="py-20 px-20 max-w-7xl mx-auto">
+    <section className="py-20 px-5 lg:px-20 max-w-7xl mx-auto">
       {showTitle && <h2 className="text-4xl font-bold text-black mb-12">Projects</h2>}
       <div className="grid grid-cols-[repeat(auto-fill,minmax(320px,1fr))] gap-8 mx-auto w-full lg:grid-cols-4 md:grid-cols-[repeat(auto-fill,minmax(280px,1fr))] md:gap-6">
         {displayedProjects.map((project) => (
