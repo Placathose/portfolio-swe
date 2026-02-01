@@ -17,11 +17,11 @@ export default async function ProjectDetailPage({
   const { id } = await params;
   const pb = getPocketBase();
   const pbUrl = process.env.POCKETBASE_URL || '';
-
+  
   try {
     const record = await pb.collection('portfolio_projects').getOne(id);
-
-    return (
+  
+  return (
       <div className="min-h-screen bg-white py-20">
         <div
           className="max-w-6xl mx-auto px-[1rem] grid grid-cols-1 lg:grid-cols-[14rem_minmax(0,37.5rem)_18.75rem] gap-8 lg:gap-12"
@@ -32,8 +32,8 @@ export default async function ProjectDetailPage({
               href="/projects"
               className="text-blue-600 hover:underline mb-6 inline-block"
             >
-              ← Back to Projects
-            </Link>
+        ← Back to Projects
+      </Link>
             <h1 className="text-4xl lg:text-5xl font-bold mb-6">{record.title}</h1>
           </div>
 
@@ -93,13 +93,13 @@ export default async function ProjectDetailPage({
             >
               {record.projectContent || ''}
             </ReactMarkdown>
-          </article>
+      </article>
         </div>
-      </div>
-    );
+    </div>
+  );
   } catch (error) {
     console.error('Error fetching project:', error);
     notFound();
-  }
+}
 }
 

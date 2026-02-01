@@ -16,10 +16,10 @@ export default function BioSection() {
   };
 
   return (
-    <div className="w-full flex flex-col lg:flex-row items-center lg:items-start justify-between gap-6 lg:gap-0">
+    <div className="w-full flex flex-col lg:flex-row items-center lg:items-start justify-between gap-6 lg:gap-0 lg:gap-40">
       {/* Bio Text */}
       <div className="w-full lg:flex-2 lg:max-w-md lg:ml-8 order-1 lg:order-2 px-4 lg:px-0">
-        <p className="text-black text-2xl lg:text-[32px] leading-9 font-normal text-center lg:text-left">
+        <p className="text-black text-2xl lg:text-[28px] leading-9 font-normal text-center lg:text-left">
           I&apos;m a software engineer and Shopify freelancer. My values are in my code, teaching and creativity.
         </p>
       </div>

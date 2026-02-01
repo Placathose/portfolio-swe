@@ -71,7 +71,7 @@ export default async function ProjectsSection({ showAll = false, showTitle = tru
   const allProjects = apiProjects.length > 0 ? apiProjects : projects; // Fallback to static
 
   const displayedProjects = showAll ? allProjects : allProjects.slice(0, 4);
-
+  
   return (
     <section className="py-20 px-5 lg:px-20 max-w-7xl mx-auto">
       {showTitle && <h2 className="text-4xl font-bold text-black mb-12">Projects</h2>}
@@ -83,10 +83,10 @@ export default async function ProjectsSection({ showAll = false, showTitle = tru
           />
         ))}
       </div>
-
+      
       {!showAll && (
         <div className="flex justify-center mt-12">
-          <Link
+          <Link 
             href="/projects"
             className="group w-full max-w-xs rounded-xl overflow-hidden bg-white border border-gray-200 transition-all duration-300 ease-in-out hover:-translate-y-1 hover:shadow-lg hover:shadow-black/10 flex items-center justify-center py-3 px-3"
           >
