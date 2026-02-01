@@ -25,7 +25,7 @@ export default async function Home() {
           {/* Name Section */}
           <div className="flex-1 flex flex-col justify-center items-center lg:items-start order-2 lg:order-1">
             <h1 className="text-black text-[60px] font-bold leading-none mb-2 text-center lg:text-left">Hey 👋, I&apos;m</h1>
-            <h1 className="text-black text-[90px] font-bold leading-none text-center lg:text-left">BRUCE W.P.</h1>
+            <h1 className="text-black text-[30px] lg:text-[90px] font-bold leading-none text-center lg:text-left">BRUCE W.P.</h1>
             <div>
 
             </div>
