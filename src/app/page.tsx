@@ -7,7 +7,7 @@ export default async function Home() {
   return (
     <div className=" pt-20">
       {/* Hero Section */}
-      <div className="flex flex-col items-center lg:gap-15 px-5 lg:px-20 py-8 lg:py-16 max-w-6xl mx-auto">
+      <div className="flex flex-col items-center lg:gap-15 px-5 lg:px-20 py-0 lg:py-16 max-w-6xl mx-auto">
         {/* Profile Section */}
         <div className="w-full flex flex-col lg:flex-row items-center lg:items-start gap-6 lg:gap-2">
           {/* Avatar */}
