@@ -25,7 +25,7 @@ export default async function Home() {
           {/* Name Section */}
           <div className="flex-1 flex flex-col justify-center items-center lg:items-start order-2 lg:order-1">
             <h1 className="text-black text-[60px] font-bold leading-none mb-2 text-center lg:text-left">Hey 👋, I&apos;m</h1>
-            <h1 className="text-black text-[30px] lg:text-[90px] font-bold leading-none text-center lg:text-left">BRUCE W.P.</h1>
+            <h1 className="text-black text-[66px] lg:text-[90px] font-bold leading-none text-center lg:text-left">BRUCE W.P.</h1>
             <div>
 
             </div>
@@ -38,21 +38,21 @@ export default async function Home() {
           <BioSection />
         </div>
 
-        <div className="w-full flex justify-center lg:justify-end">
+        <div className="w-full flex justify-center lg:justify-end my-5">
           <div className="flex gap-[10px]">
             <a
               href="https://www.linkedin.com/in/bruce-ww/"
-              className="w-[30px] h-[30px] rounded-full bg-gray-200 flex items-center justify-center hover:bg-gray-300 transition-colors"
+              className="w-[40px] h-[40px] rounded-full bg-gray-200 flex items-center justify-center hover:bg-gray-300 transition-colors"
               aria-label="LinkedIn"
             >
-              <Linkedin className="w-4 h-4 text-gray-700" />
+              <Linkedin className="w-6 h-6 text-gray-700" />
             </a>
             <a
               href="https://github.com/Placathose"
-              className="w-[30px] h-[30px] rounded-full bg-gray-200 flex items-center justify-center hover:bg-gray-300 transition-colors"
+              className="w-[40px] h-[40px] rounded-full bg-gray-200 flex items-center justify-center hover:bg-gray-300 transition-colors"
               aria-label="GitHub"
             >
-              <Github className="w-4 h-4 text-gray-700" />
+              <Github className="w-6 h-6 text-gray-700" />
             </a>
           </div>
         </div>
