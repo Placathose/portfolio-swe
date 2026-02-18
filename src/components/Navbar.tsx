@@ -15,27 +15,31 @@ export default function Navbar() {
           {/* Navigation Links */}
           <ul className="flex items-center space-x-8">
             <li>
-              <Link 
-                href="/projects" 
+              <Link
+                href="/projects"
                 className="text-black text-lg font-medium hover:underline underline-offset-4 transition-all duration-300 ease-in-out"
               >
                 Project
               </Link>
             </li>
             <li>
-              <Link 
-                href="https://rb.brucewyatt.space" 
+              <Link
+                href="https://rb.brucewyatt.space"
                 className="text-black text-lg font-medium hover:underline underline-offset-4 transition-all duration-300 ease-in-out"
               >
                 Blog
               </Link>
             </li>
             <li>
-              <Link 
-                href="/shopify" 
-                className="text-black text-lg font-medium hover:underline underline-offset-4 transition-all duration-300 ease-in-out"
+              <Link
+                href="https://www.urbancustomz.com"
+                className="relative text-black text-lg font-medium hover:underline underline-offset-4 transition-all duration-300 ease-in-out group"
               >
                 Shopify
+                <span className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-1.5 bg-gray-900 text-white text-sm rounded-lg whitespace-nowrap opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 ease-in-out pointer-events-none z-10">
+                  One of my website in Production
+                  <span className="absolute top-full left-1/2 transform -translate-x-1/2 -mt-1 border-4 border-transparent border-t-gray-900"></span>
+                </span>
               </Link>
             </li>
           </ul>
