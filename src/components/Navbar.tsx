@@ -24,7 +24,7 @@ export default function Navbar() {
             </li>
             <li>
               <Link 
-                href="/blog" 
+                href="https://rb.brucewyatt.space" 
                 className="text-black text-lg font-medium hover:underline underline-offset-4 transition-all duration-300 ease-in-out"
               >
                 Blog
